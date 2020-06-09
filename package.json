@@ -29,5 +29,9 @@
     "@effection/node": "^0.6.3",
     "effection": "^0.6.3",
     "express": "^4.17.1"
+  },
+  "volta": {
+    "node": "12.11.1",
+    "yarn": "1.22.4"
   }
 }
