@@ -8,8 +8,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "build": "tsc --outDir dist"
+    "start:backend": "ts-node backend/src/index.ts",
+    "start:frontend": "parcel start frontend/src/index.html",
+    "build": "tsc --outDir dist",
+    "bigtest": "bigtest",
+    "test:frontend": "bigtest ci"
   },
   "devDependencies": {
     "@bigtest/cli": "^0.4.1",
@@ -22,6 +25,7 @@
     "@typescript-eslint/parser": "^2.3.2",
     "eslint": "^6.6.0",
     "eslint-plugin-prefer-let": "^1.0.1",
+    "parcel-bundler": "^1.12.4",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   },
