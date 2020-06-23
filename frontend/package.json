@@ -1,0 +1,19 @@
+{
+  "name": "@frontside/release.frontend",
+  "version": "1.0.0",
+  "description": "Release Manager UI",
+  "repository": "https://github.com/thefrontside/release",
+  "author": "engineering@frontside.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel start src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "bigtest ci"
+  },
+  "devDependencies": {
+    "@bigtest/cli": "^0.5.1",
+    "@bigtest/interactor": "^0.11.1",
+    "parcel-bundler": "^1.12.4"
+  }
+}
