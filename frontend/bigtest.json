@@ -1,10 +1,10 @@
 {
   "app": {
-    "command": "yarn start:frontend -p 36000",
+    "command": "yarn start -p 36000",
     "port": 36000
   },
   "testFiles": [
-    "./{frontend,backend}/test/*.test.ts"
+    "./test/**/*.test.ts"
   ],
   "launch": [
     "chrome.headless"

@@ -1,5 +1,6 @@
 /dist
 /node_modules
+**/node_modules
 /yarn-error.log
 .node-version
 .cache

@@ -2,36 +2,19 @@
   "name": "@frontside/release",
   "version": "1.0.0",
   "description": "Automatically Produce Professional Package Releases",
-  "main": "index.js",
-  "repository": "https://github.com/thefrontside/manager",
+  "repository": "https://github.com/thefrontside/release",
   "author": "engineering@frontside.com",
   "license": "MIT",
   "private": true,
+  "workspaces": {
+    "packages": ["frontend", "backend"]
+  },
   "scripts": {
     "start:backend": "ts-node backend/src/index.ts",
     "start:frontend": "parcel start frontend/src/index.html",
-    "build": "tsc --outDir dist",
-    "bigtest": "bigtest",
-    "test:frontend": "bigtest ci"
-  },
-  "devDependencies": {
-    "@bigtest/cli": "^0.5.1",
-    "@bigtest/interactor": "^0.11.1",
-    "@frontside/eslint-config": "^1.0.0",
-    "@frontside/tsconfig": "^0.0.1",
-    "@types/express": "^4.17.6",
-    "@types/node": "^14.0.11",
-    "@typescript-eslint/eslint-plugin": "^2.3.2",
-    "@typescript-eslint/parser": "^2.3.2",
-    "eslint": "^6.6.0",
-    "eslint-plugin-prefer-let": "^1.0.1",
-    "parcel-bundler": "^1.12.4",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.5"
-  },
-  "dependencies": {
-    "@effection/node": "^0.6.5",
-    "express": "^4.17.1"
+    "build": "yarn workspaces run build",
+    "test": "yarn workspaces run test",
+    "lint": "cd backend && yarn lint"
   },
   "volta": {
     "node": "12.11.1",
