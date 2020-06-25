@@ -911,35 +911,36 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bigtest/agent@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/agent/-/agent-0.5.1.tgz#ff078fad6606a25091d8447212d8172d5bdd2e94"
-  integrity sha512-VR3d3AJw/J4JlGIR7QzT6sIiZuYmku8XDbKjDWrb03jatQQo1Yxfi8EZqaQ2rbZu4sQhv55t2A26+PRkWRVsQg==
+"@bigtest/agent@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@bigtest/agent/-/agent-0.5.2.tgz#4e56633fc89069b93baa4e8b16ddda1e437222bf"
+  integrity sha512-b06ReOLWPCQOgrDnTokRWeWIG3OmEq7gbdt1fGVoaQwmSbErzIVpR4VVYlgfle7nXey8A2Y0Ost4Jb2HTd+1Sg==
   dependencies:
     "@bigtest/effection" "^0.5.1"
-    "@bigtest/effection-express" "^0.5.1"
+    "@bigtest/effection-express" "^0.6.0"
     "@effection/events" "^0.7.4"
     bowser "^2.9.0"
     effection "^0.7.0"
 
-"@bigtest/atom@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/atom/-/atom-0.5.1.tgz#14a28cdac5359dba5adf59bab1504a4ef2f308cf"
-  integrity sha512-aLnq59I3Vz3XH3p0rg+3APpLIhjmFhtslebaOzlW/RMTpOA/esQAxM80GCKe8BS+wscYW9IXy7XO2wcTMISfPA==
+"@bigtest/atom@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/atom/-/atom-0.6.0.tgz#0453997e075bbd5024c511a02c164ef4541523e6"
+  integrity sha512-r+vexL1rCp/MTRhbna7tAhFxxX46r6Vc8p5Q27j0Ul9RD3i+NlyEV/5eo8Nhbdhbyxbco3b8zJSdQR1vttuWnw==
   dependencies:
     "@effection/events" "^0.7.4"
     "@effection/subscription" "^0.7.2"
     effection "0.7.0"
     ramda "0.27.0"
 
-"@bigtest/cli@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/cli/-/cli-0.5.1.tgz#f5c841ee2b7ceb97058342041c1858af2de40965"
-  integrity sha512-jOODhT/xKHetzEBl0v8AAy6b/SIDDVvdQ7ijrTH4LxkmJeXrwpKsMYKqlQLiNoIwhRjCY8UqIAUJk+XuKuNZwQ==
+"@bigtest/cli@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@bigtest/cli/-/cli-0.6.1.tgz#76a53d1f315d4666118aa88e40b049d525cec901"
+  integrity sha512-tgTxHVSus0DH0efHLDy2/i6ycYrV4Ag5huowMOiWcE1/B7mKq7RCsNv9ryuQ4jhvMjrPU0tGKJjST4pqd9a64g==
   dependencies:
     "@bigtest/effection" "^0.5.1"
+    "@bigtest/performance" "^0.5.0"
     "@bigtest/project" "^0.5.1"
-    "@bigtest/server" "^0.5.1"
+    "@bigtest/server" "^0.6.0"
     "@effection/node" "^0.6.5"
     capture-console "^1.0.1"
     deepmerge "^4.2.2"
@@ -953,10 +954,10 @@
   dependencies:
     effection "^0.7.0"
 
-"@bigtest/effection-express@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/effection-express/-/effection-express-0.5.1.tgz#4da1bff350eb6cbf5bd50a06a30f1b3a85b92557"
-  integrity sha512-pR+kGHQy7jJnKkLbNoMUAPSzgu6Zs27fWCpwa9ywZtfI2VkfckiAUDACXjGN9HNLy47sBoG+nJGRi6s+nYzRBA==
+"@bigtest/effection-express@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/effection-express/-/effection-express-0.6.0.tgz#d8d3dabcebb5fef6202f9ec2d5832044e7c5b47f"
+  integrity sha512-CWGvyz9FTFbz7+hwaPHhrqYAfiYTiI8U4ugkUMmwkhhNakt2TaegLBHRysYHj+fcRiszHvZ+mh7iC+lLGw/XiA==
   dependencies:
     "@effection/events" "^0.7.4"
     "@types/express-ws" "^3.0.0"
@@ -974,10 +975,12 @@
     "@types/node" "^13.13.4"
     effection "^0.7.0"
 
-"@bigtest/interactor@^0.11.1":
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/interactor/-/interactor-0.11.1.tgz#5bbfeb897a13d609b407653d476cdf634ede9155"
-  integrity sha512-8dr4DSBFMAe6B1MKU/yZHzc6MkRfx8hTl5Tqji5OnL5fRz7paDwYM2lsGXyMaA0n8bn+zQxJ3Po4ZtkjV/Tb0A==
+"@bigtest/interactor@^0.11.2":
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/@bigtest/interactor/-/interactor-0.11.2.tgz#24a7d522a27044ce693af7a1e67d4c25dfc2196f"
+  integrity sha512-RjX1f/D0U/xtql54wQL4YPnCDGIP0adX/sa0GeHudX6ZqM1fjVHIWFOvjkVY5QYo7xGo8BMFfAleBDtp3MP6ig==
+  dependencies:
+    "@bigtest/performance" "^0.5.0"
 
 "@bigtest/logging@^0.5.1":
   version "0.5.1"
@@ -996,6 +999,11 @@
     parcel "^1.12.4"
     parcel-bundler "^1.12.4"
 
+"@bigtest/performance@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/performance/-/performance-0.5.0.tgz#195f2c445cbe2ebe4357e08f7b39449240bf62d7"
+  integrity sha512-5lmaul6UIdyEApxapYumCShEdKca7PjwYlcIHiu/5iI032DUQsq4dygYMX07cgevfCZSR2fss57uMGfdB22GbQ==
+
 "@bigtest/project@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@bigtest/project/-/project-0.5.1.tgz#0528f78a805c8e9c2b9a088d447b789b0378d86c"
@@ -1004,24 +1012,24 @@
     "@bigtest/driver" "^0.5.1"
     effection "^0.7.0"
 
-"@bigtest/server@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/server/-/server-0.5.1.tgz#497e24cfbf090a3771c1d02ad1d7af48098d141d"
-  integrity sha512-YMuIzEKhB6FD2Z911bcApbcBLNxhjlAeUbHa6DtDiHpZAOD7brsQ66jURJMFhuUAwwHLZlfrA2Dwm33E8xIfkw==
+"@bigtest/server@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/server/-/server-0.6.0.tgz#e792b6e56963ff23f52c13f8d57ef9489b4017dc"
+  integrity sha512-6/UcEqw4G88pMVZzGTQRafOr8WOgfGIj+Zs14M8wxIcfjNNIlNcx5IEVMYrdaELELx97+Jozbmwrbuo+tvpP6Q==
   dependencies:
     "@babel/core" "^7.0.0-0"
     "@babel/plugin-transform-runtime" "7.8.3"
     "@babel/preset-env" "7.8.4"
-    "@bigtest/agent" "^0.5.1"
-    "@bigtest/atom" "^0.5.1"
+    "@bigtest/agent" "^0.5.2"
+    "@bigtest/atom" "^0.6.0"
     "@bigtest/driver" "^0.5.1"
     "@bigtest/effection" "^0.5.1"
-    "@bigtest/effection-express" "^0.5.1"
+    "@bigtest/effection-express" "^0.6.0"
     "@bigtest/logging" "^0.5.1"
     "@bigtest/parcel" "^0.5.1"
     "@bigtest/project" "^0.5.1"
     "@bigtest/suite" "^0.5.1"
-    "@bigtest/webdriver" "^0.5.1"
+    "@bigtest/webdriver" "^0.5.2"
     "@effection/events" "^0.7.4"
     "@effection/node" "^0.6.5"
     "@nexus/schema" "^0.13.1"
@@ -1048,12 +1056,12 @@
   resolved "https://registry.yarnpkg.com/@bigtest/suite/-/suite-0.5.1.tgz#ea7c1e1fcbc9c4b3e21683b15451f37571224d27"
   integrity sha512-VMpp0NQ8Og7sb4rn6OZ74AD1GL1e3tG/lgh0xC1q04wzaV3GT204XypaIh7T6skQjtJKAUMYd1h7l/NMFCTpKA==
 
-"@bigtest/webdriver@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/webdriver/-/webdriver-0.5.1.tgz#65758f83804a90ed88b6fd6318f0850b42d68971"
-  integrity sha512-NxArgUPcXg/Nw+xpF5M3Kl1QiFRUaW1sEOXQ+BGJXNGo5Yno9Yluc9zfsZvs0QsGKSNz8IlA4uE8qOSlLnuzQw==
+"@bigtest/webdriver@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@bigtest/webdriver/-/webdriver-0.5.2.tgz#ba7b76b09c00ee397d9096eb3992171c973e2f6e"
+  integrity sha512-fR7Td5sw55pJgvE7d6adIu8jsQHlVok+LNvJxE7pX3WvmeRbbDDU2QANa0FHJ5uhR3O3L9ADeb1uMplVapmMQw==
   dependencies:
-    "@bigtest/atom" "^0.5.1"
+    "@bigtest/atom" "^0.6.0"
     "@bigtest/driver" "^0.5.1"
     "@effection/node" "^0.6.5"
     abort-controller "^3.0.0"
