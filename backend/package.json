@@ -10,7 +10,7 @@
     "start": "ts-node src/index.ts",
     "start:frontend": "parcel start frontend/src/index.html",
     "build": "tsc --outdir dist",
-    "test": "mocha -r ts-node/register test/**/*.ts",
+    "test": "mocha -r ts-node/register test/**/*.test.ts",
     "lint": "eslint '{src,test}/**/*.ts'"
   },
   "devDependencies": {
