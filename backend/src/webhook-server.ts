@@ -31,7 +31,7 @@ export function* createWebhookServer(options: WebhookServerOptions): Operation<W
 
   let localURL = `http://localhost:${address.port}`;
 
-  return yield resource({ address, events, localURL }, function*() {
+  return yield resource({ address, events, webhooks, localURL }, function*() {
     try {
       yield;
     } finally {
@@ -45,4 +45,5 @@ export interface WebhookServer {
   address: AddressInfo;
   events: Channel<WebhookEvent>;
   localURL: string;
+  webhooks: Webhooks;
 }
