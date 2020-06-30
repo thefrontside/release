@@ -2,40 +2,53 @@ import { resource, Operation } from 'effection';
 import { fetch } from '@effection/fetch';
 import { v4 as uuidv4 } from 'uuid';
 
-import { createWebhookServer, WebhookServer } from '../../src/webhook-server';
+import { Webhooks } from '@octokit/webhooks';
+
+import { createOrchestrator, Orchestrator } from '../../src/orchestrator';
 
 import { perform } from './perform';
 
 export async function createTestServer(): Promise<TestServer> {
-  let webhookServer: WebhookServer;
+  let githubWebhookSecret = 'fake-secret';
+  let orchestrator: Orchestrator;
   let signalReady: () => void;
   let ready = new Promise((resolve) => signalReady = resolve);
 
-  async function deliver(eventType: GithubEventType, payload: unknown): Promise<string> {
+  async function deliverWebhook(eventType: GithubEventType, payload: unknown): Promise<string> {
     return await perform(function*(): Operation<string> {
       let body: string = JSON.stringify(payload);
 
-      let response: Response = yield fetch(webhookServer.localURL, {
+      let webhookURL = `${orchestrator.localURL}/github-webhook`;
+
+      let response: Response = yield fetch(webhookURL, {
         body,
         method: 'POST',
         headers: {
           'x-github-event': eventType,
           'x-github-delivery': uuidv4(),
-          'x-hub-signature': webhookServer.webhooks.sign(body)
+          'x-hub-signature': sign(body, githubWebhookSecret)
         },
       });
+
+      let responseBody;
+
+      try {
+        responseBody = yield response.text().then(text => text.trim());
+      } catch (_error) { /* don't care if we can't get text */ }
+
       if (!response.ok) {
-        let error = new Error(`${response.status} ${response.statusText}`);
+        let error = new Error(`${response.status} ${response.statusText} ${responseBody}`);
         error.name = 'DeliveryError';
+        throw error;
       }
-      return yield response.text().then(text => text.trim());
+      return responseBody;
     });
   }
 
   return await perform(function*() {
-    let testServer =  yield resource({ deliver }, function*() {
-      webhookServer = yield createWebhookServer({
-        secret: 'fake-secret'
+    let testServer =  yield resource({ deliverWebhook }, function*() {
+      orchestrator = yield createOrchestrator({
+        githubWebhookSecret
       });
       signalReady();
       yield;
@@ -49,7 +62,12 @@ export async function createTestServer(): Promise<TestServer> {
 }
 
 export interface TestServer {
-  deliver(eventType: GithubEventType, payload: unknown): Promise<string>;
+  deliverWebhook(eventType: GithubEventType, payload: unknown): Promise<string>;
 }
 
 export type GithubEventType = 'ping' | 'push';
+
+
+function sign(data: string, secret: string) {
+  return new Webhooks({ secret }).sign(data);
+}
