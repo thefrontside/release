@@ -14,7 +14,7 @@ describe('ping', () => {
     let response: string;
 
     beforeEach(async () => {
-      response = await server.deliver('ping', {
+      response = await server.deliverWebhook('ping', {
         "zen": 'do not dive after keys dropped into lava',
         "hook_id": 1
       });
