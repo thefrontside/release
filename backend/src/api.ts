@@ -2,7 +2,7 @@ import { Channel } from '@effection/channel';
 
 import { espresso } from './espresso';
 import { createWebhookHandler, WebhookEvent } from './github-webhooks';
-export { WebhookEvent } from './github-webhooks';
+import { createGraphqQLHandler } from './graphql';
 
 export interface APIOptions {
   githubWebhookSecret: string;
@@ -10,5 +10,8 @@ export interface APIOptions {
 }
 export function createAPI(options: APIOptions)  {
   return espresso()
-    .use('/github-webhook', createWebhookHandler(options.githubWebhookSecret, options.webhooks));
+    .use('/github-webhook', createWebhookHandler(options.githubWebhookSecret, options.webhooks))
+    .use('/graphql', createGraphqQLHandler());
 }
+
+export { WebhookEvent } from './github-webhooks';
