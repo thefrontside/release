@@ -4,6 +4,7 @@ import { Subscription } from '@effection/subscription';
 
 let evalLoop: Context;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Run<T = any> {
   operation: Operation<T>;
   resolve: (value: T) => void;

@@ -7,6 +7,7 @@ export function espresso(): Espresso {
   return new Espresso();
 }
 
+
 export class Espresso {
   constructor(private routes: Route[] = []) {}
 
@@ -49,7 +50,7 @@ export class Espresso {
     yield once(http, 'listening');
 
     return http;
-  };
+  }
 
   private addRoute(method: RouteMatchType, path: string, handler: RequestHandler) {
     return new Espresso([...this.routes, { method, path, handler }]);
