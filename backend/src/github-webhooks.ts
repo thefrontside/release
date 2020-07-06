@@ -3,11 +3,11 @@ import { Channel } from '@effection/channel';
 import { forEach } from '@effection/subscription';
 import { Webhooks } from '@octokit/webhooks';
 
-import { RequestHandler, Intercept } from './espresso';
+import { RouteHandler, Intercept } from './espresso';
 
 export type WebhookEvent<T = unknown> = Webhooks.WebhookEvent<T>;
 
-export function createWebhookHandler(secret: string, events: Channel<WebhookEvent>): RequestHandler {
+export function createWebhookHandler(secret: string, events: Channel<WebhookEvent>): RouteHandler {
 
   let webhooks = new Webhooks({ secret });
 
