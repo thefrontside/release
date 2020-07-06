@@ -64,8 +64,14 @@ export async function createTestServer(): Promise<TestServer> {
     });
   }
 
+  async function get(path: string) {
+    return perform(fetch(`${orchestrator.localURL}${path}`, {
+      method: 'GET'
+    }));
+  }
+
   return await perform(function*() {
-    let testServer =  yield resource({ deliverWebhook, query }, function*() {
+    let testServer =  yield resource({ deliverWebhook, query, get }, function*() {
       orchestrator = yield createOrchestrator({
         githubWebhookSecret
       });
@@ -83,6 +89,7 @@ export async function createTestServer(): Promise<TestServer> {
 export interface TestServer {
   deliverWebhook(eventType: GithubEventType, payload: unknown): Promise<string>;
   query(source: string): Promise<ExecutionResult>;
+  get(path: string): Promise<Response>;
 }
 
 export type GithubEventType = 'ping' | 'push';

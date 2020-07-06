@@ -32,6 +32,7 @@
     "@effection/channel": "^0.6.4",
     "@effection/events": "^0.7.6",
     "@effection/node": "^0.6.5",
+    "@frontside/release.frontend": "^1.0.0",
     "@octokit/webhooks": "^7.6.4",
     "effection": "^0.7.0",
     "express": "^4.17.1",
