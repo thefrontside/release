@@ -8,22 +8,31 @@ export function espresso(): Espresso {
 }
 
 export class Espresso {
-  constructor(private routes: Route[] = []) {}
+  constructor(private routes: Route[] = [], private middlewares: Handler[] = []) {}
 
-  post(path: string, handler: RequestHandler) {
+  post(path: string, handler: RouteHandler) {
     return this.addRoute('post', path, handler);
   }
 
-  get(path: string, handler: RequestHandler) {
+  get(path: string, handler: RouteHandler) {
     return this.addRoute('get', path, handler);
   }
 
-  use(path: string, handler: RequestHandler) {
+  use(path: string, handler: RouteHandler) {
     return this.addRoute('use', path, handler);
+  }
+
+  static(path: string, root: string) {
+    return this.addMiddleware(path, express.static(root));
   }
 
   *listen(port: number | undefined = undefined) {
     let app = express();
+
+    for (let middleware of this.middlewares) {
+      app.use(middleware.path, middleware.handler);
+    }
+
     let handlers: Operation<void>[] = [];
     for (let route of this.routes) {
       let channel = new Channel<[express.Request, express.Response, express.NextFunction], void>();
@@ -51,18 +60,27 @@ export class Espresso {
     return http;
   };
 
-  private addRoute(method: RouteMatchType, path: string, handler: RequestHandler) {
-    return new Espresso([...this.routes, { method, path, handler }]);
+  private addRoute(method: RouteMatchType, path: string, handler: RouteHandler) {
+    return new Espresso([...this.routes, { method, path, handler }], this.middlewares);
+  }
+
+  private addMiddleware(path: string, handler: express.Handler) {
+    return new Espresso(this.routes, [...this.middlewares, { path, handler }]);
   }
 }
 
 export interface Route {
   method: RouteMatchType;
   path: string;
-  handler: RequestHandler;
+  handler: RouteHandler;
 }
 
-export interface RequestHandler {
+export interface Handler {
+  path: string;
+  handler: express.Handler;
+}
+
+export interface RouteHandler {
   (channel: Channel<Intercept, void>): Operation<void>;
 }
 
