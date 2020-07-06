@@ -12,8 +12,8 @@
     "test": "bigtest ci"
   },
   "devDependencies": {
-    "@bigtest/cli": "^0.6.1",
-    "@bigtest/interactor": "^0.11.2",
+    "@bigtest/cli": "^0.6.2",
+    "@bigtest/interactor": "^0.12.0",
     "@frontside/tsconfig": "^0.0.1",
     "parcel-bundler": "^1.12.4"
   }
