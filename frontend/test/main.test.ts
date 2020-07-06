@@ -1,7 +1,10 @@
 import { test } from '@bigtest/suite';
-import { P } from './interactors';
+import { App, P } from './interactors';
 
 export default test('Release Manager')
-  .assertion("loads", async () => {
+  .step("load", async () => {
+    await App.visit();
+  })
+  .assertion("has content", async () => {
     await P("Hello world").exists();
   });

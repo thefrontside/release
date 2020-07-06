@@ -911,13 +911,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bigtest/agent@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@bigtest/agent/-/agent-0.5.2.tgz#4e56633fc89069b93baa4e8b16ddda1e437222bf"
-  integrity sha512-b06ReOLWPCQOgrDnTokRWeWIG3OmEq7gbdt1fGVoaQwmSbErzIVpR4VVYlgfle7nXey8A2Y0Ost4Jb2HTd+1Sg==
+"@bigtest/agent@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/agent/-/agent-0.7.0.tgz#dd7042f26078213cb8ff440e27229b868a4f7e81"
+  integrity sha512-tnlUr3lEZ9WbrArAQcE1bkc1Kf/wDo3cCMY8+dQnkyr5XxQXj5HbVoE4hFvSArftp4ElkLD73fFC8oCQ55fdIw==
   dependencies:
     "@bigtest/effection" "^0.5.1"
     "@bigtest/effection-express" "^0.6.0"
+    "@bigtest/globals" "^0.6.0"
+    "@bigtest/interactor" "^0.13.0"
     "@effection/events" "^0.7.4"
     bowser "^2.9.0"
     effection "^0.7.0"
@@ -932,15 +934,15 @@
     effection "0.7.0"
     ramda "0.27.0"
 
-"@bigtest/cli@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/cli/-/cli-0.6.1.tgz#76a53d1f315d4666118aa88e40b049d525cec901"
-  integrity sha512-tgTxHVSus0DH0efHLDy2/i6ycYrV4Ag5huowMOiWcE1/B7mKq7RCsNv9ryuQ4jhvMjrPU0tGKJjST4pqd9a64g==
+"@bigtest/cli@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@bigtest/cli/-/cli-0.6.2.tgz#e2b852f358250d68739674e046d65daeb456ab3a"
+  integrity sha512-fbGboM1nLI9WDDdxEibNk3ZuknnfhrRDvO93mJHLfXl4ZIMgubn2iRTW/B6NSRgYE/oIFYL91qVTKbnAg1D5XA==
   dependencies:
     "@bigtest/effection" "^0.5.1"
     "@bigtest/performance" "^0.5.0"
     "@bigtest/project" "^0.5.1"
-    "@bigtest/server" "^0.6.0"
+    "@bigtest/server" "^0.7.0"
     "@effection/node" "^0.6.5"
     capture-console "^1.0.1"
     deepmerge "^4.2.2"
@@ -975,11 +977,28 @@
     "@types/node" "^13.13.4"
     effection "^0.7.0"
 
-"@bigtest/interactor@^0.11.2":
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/@bigtest/interactor/-/interactor-0.11.2.tgz#24a7d522a27044ce693af7a1e67d4c25dfc2196f"
-  integrity sha512-RjX1f/D0U/xtql54wQL4YPnCDGIP0adX/sa0GeHudX6ZqM1fjVHIWFOvjkVY5QYo7xGo8BMFfAleBDtp3MP6ig==
+"@bigtest/globals@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/globals/-/globals-0.6.0.tgz#1a46c3a0097af38ef3a4da16f95d1b893f587741"
+  integrity sha512-uYKU5Vu9jCS93dhOBJZ/+VOjm210TdvDuAIRfqQpWRUv924hKzM0ezDWOfNDUXdLoL0XOTsH+3G/lsqK1yOWuQ==
   dependencies:
+    "@bigtest/suite" "^0.5.2"
+    effection "^0.7.0"
+
+"@bigtest/interactor@^0.12.0":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@bigtest/interactor/-/interactor-0.12.1.tgz#4ab3c47d1b46e1e76e307c74fc2087b89a375ff7"
+  integrity sha512-+uft8RskubNfqO7cb2qTEIkykfNjx2pKgNSB0z+mqKjQux+Va4SwYHIwhnUVrIdB6MAUqhI1+TTN3VqMQKt6cg==
+  dependencies:
+    "@bigtest/globals" "^0.6.0"
+    "@bigtest/performance" "^0.5.0"
+
+"@bigtest/interactor@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/interactor/-/interactor-0.13.0.tgz#9bc7671395b235040a1b25475bd6f19f89a391a6"
+  integrity sha512-w0q3CLCm6MOMLKuVXwSUvZgcf2dd+ygMkfQzd6EFXAeGIIQ9NLZUy51N+uIreOCVzf7RvJF6Qa00sa2GCcDHiQ==
+  dependencies:
+    "@bigtest/globals" "^0.6.0"
     "@bigtest/performance" "^0.5.0"
 
 "@bigtest/logging@^0.5.1":
@@ -987,10 +1006,10 @@
   resolved "https://registry.yarnpkg.com/@bigtest/logging/-/logging-0.5.1.tgz#960d202ff69baaad234f5eb51e7747ae45084632"
   integrity sha512-iz4mrEoKGGV+NNDQ+IMvpGMQQawfqvslCj5hU1ofgxOSfT3o3xFF5+c/qlU0OrvA+6vduiaFVxwdUFcVnogUVw==
 
-"@bigtest/parcel@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/parcel/-/parcel-0.5.1.tgz#ea6e01e23e3e7c1a6c48eb0f15fbe160c560ac24"
-  integrity sha512-Q+Q+D52iBseOcJxEmTSx78z+Cu0/QLQ6rBP2GJ8GYTGv+b16RKw8C8KqTsmzgEzPx7n9C4FoLJwujQe3YBMxNg==
+"@bigtest/parcel@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@bigtest/parcel/-/parcel-0.5.2.tgz#3ed6d0af2e5ffa809063200834720bdae775373c"
+  integrity sha512-w7nZZeewRKo8Ib1nLSD6vp+UYy9OajgFautAf6ozuDMuJ8SCq1YljG57eD8GZwUj4WehSKKsZLandzjVc8WXZA==
   dependencies:
     "@bigtest/effection" "^0.5.1"
     "@effection/events" "^0.7.4"
@@ -1012,23 +1031,24 @@
     "@bigtest/driver" "^0.5.1"
     effection "^0.7.0"
 
-"@bigtest/server@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@bigtest/server/-/server-0.6.0.tgz#e792b6e56963ff23f52c13f8d57ef9489b4017dc"
-  integrity sha512-6/UcEqw4G88pMVZzGTQRafOr8WOgfGIj+Zs14M8wxIcfjNNIlNcx5IEVMYrdaELELx97+Jozbmwrbuo+tvpP6Q==
+"@bigtest/server@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@bigtest/server/-/server-0.7.0.tgz#5af9c8ae09481a67166a5528369b356cc1a77382"
+  integrity sha512-EwtW7goVt7FjaowCBysO0TMd1QqcKorq7zpAFmkYEJI8AxkpX58Wb5w2AfhClTROqw9QpyiDNn6BaexX/MSYZQ==
   dependencies:
     "@babel/core" "^7.0.0-0"
     "@babel/plugin-transform-runtime" "7.8.3"
     "@babel/preset-env" "7.8.4"
-    "@bigtest/agent" "^0.5.2"
+    "@bigtest/agent" "^0.7.0"
     "@bigtest/atom" "^0.6.0"
     "@bigtest/driver" "^0.5.1"
     "@bigtest/effection" "^0.5.1"
     "@bigtest/effection-express" "^0.6.0"
+    "@bigtest/globals" "^0.6.0"
     "@bigtest/logging" "^0.5.1"
-    "@bigtest/parcel" "^0.5.1"
+    "@bigtest/parcel" "^0.5.2"
     "@bigtest/project" "^0.5.1"
-    "@bigtest/suite" "^0.5.1"
+    "@bigtest/suite" "^0.5.2"
     "@bigtest/webdriver" "^0.5.2"
     "@effection/events" "^0.7.4"
     "@effection/node" "^0.6.5"
@@ -1051,10 +1071,10 @@
     websocket "^1.0.30"
     yargs "^15.0.2"
 
-"@bigtest/suite@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@bigtest/suite/-/suite-0.5.1.tgz#ea7c1e1fcbc9c4b3e21683b15451f37571224d27"
-  integrity sha512-VMpp0NQ8Og7sb4rn6OZ74AD1GL1e3tG/lgh0xC1q04wzaV3GT204XypaIh7T6skQjtJKAUMYd1h7l/NMFCTpKA==
+"@bigtest/suite@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@bigtest/suite/-/suite-0.5.2.tgz#32bd4448d1a6f201390fbbd10c1eace5441797aa"
+  integrity sha512-u04PFpeQHVvP84Cnlqc4zXrh5TBqifrW/Srnrcnx5zb0iYevG4yVy4kIS9s0IB7c0UmMN3qj+6j1p6O9CiMtjQ==
 
 "@bigtest/webdriver@^0.5.2":
   version "0.5.2"
