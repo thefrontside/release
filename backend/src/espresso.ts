@@ -2,28 +2,28 @@ import * as express from 'express';
 import { Operation, resource, spawn } from 'effection';
 import { Channel } from '@effection/channel';
 import { once } from '@effection/events';
+import { Server } from 'http';
 
 export function espresso(): Espresso {
   return new Espresso();
 }
 
-
 export class Espresso {
   constructor(private routes: Route[] = []) {}
 
-  post(path: string, handler: RequestHandler) {
+  post(path: string, handler: RequestHandler): Espresso {
     return this.addRoute('post', path, handler);
   }
 
-  get(path: string, handler: RequestHandler) {
+  get(path: string, handler: RequestHandler): Espresso {
     return this.addRoute('get', path, handler);
   }
 
-  use(path: string, handler: RequestHandler) {
+  use(path: string, handler: RequestHandler): Espresso {
     return this.addRoute('use', path, handler);
   }
 
-  *listen(port: number | undefined = undefined) {
+  *listen(port: number | undefined = undefined): Operation<Server> {
     let app = express();
     let handlers: Operation<void>[] = [];
     for (let route of this.routes) {
