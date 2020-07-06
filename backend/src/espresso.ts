@@ -26,7 +26,7 @@ export class Espresso {
     let app = express();
     let handlers: Operation<void>[] = [];
     for (let route of this.routes) {
-      let channel = new Channel<[express.Request, express.Response, express.NextFunction]>();
+      let channel = new Channel<[express.Request, express.Response, express.NextFunction], void>();
       handlers.push(route.handler(channel))
       app[route.method](route.path, (request, response, next) => {
         channel.send([request, response, next]);
@@ -63,7 +63,9 @@ export interface Route {
 }
 
 export interface RequestHandler {
-  (channel: Channel<[express.Request, express.Response, express.NextFunction]>): Operation<void>;
+  (channel: Channel<Intercept, void>): Operation<void>;
 }
+
+export type Intercept = [express.Request, express.Response, express.NextFunction];
 
 export type RouteMatchType = 'get' | 'post' | 'use';

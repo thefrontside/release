@@ -1,3 +1,5 @@
+import { ExecutionResult } from 'graphql';
+
 import { resource, Operation } from 'effection';
 import { fetch } from '@effection/fetch';
 import { v4 as uuidv4 } from 'uuid';
@@ -45,8 +47,25 @@ export async function createTestServer(): Promise<TestServer> {
     });
   }
 
+  async function query(source: string) {
+    return perform(function*(): Operation<ExecutionResult> {
+      let response: Response = yield fetch(`${orchestrator.localURL}/graphql`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/graphql'
+        },
+        body: source
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+      let result = yield response.json();
+      return result as ExecutionResult;
+    });
+  }
+
   return await perform(function*() {
-    let testServer =  yield resource({ deliverWebhook }, function*() {
+    let testServer =  yield resource({ deliverWebhook, query }, function*() {
       orchestrator = yield createOrchestrator({
         githubWebhookSecret
       });
@@ -63,6 +82,7 @@ export async function createTestServer(): Promise<TestServer> {
 
 export interface TestServer {
   deliverWebhook(eventType: GithubEventType, payload: unknown): Promise<string>;
+  query(source: string): Promise<ExecutionResult>;
 }
 
 export type GithubEventType = 'ping' | 'push';
