@@ -10,6 +10,7 @@ export function espresso(): Espresso {
 
 export class Espresso {
   constructor(private routes: Route[] = [], private middlewares: Handler[] = []) {}
+  
   post(path: string, handler: RouteHandler): Espresso {
     return this.addRoute('post', path, handler);
   }

@@ -4,9 +4,9 @@ import { schema } from './schema';
 import { graphqlHTTP } from 'express-graphql';
 import { buildSchema } from 'graphql';
 import { Operation } from 'effection';
-import { Intercept, RequestHandler } from './espresso';
+import { Intercept, RouteHandler } from './espresso';
 
-export function createGraphqQLHandler(): RequestHandler {
+export function createGraphqQLHandler(): RouteHandler {
   let middleware = graphqlHTTP({
     schema: buildSchema(schema),
     rootValue: {
