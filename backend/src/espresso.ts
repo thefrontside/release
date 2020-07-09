@@ -2,6 +2,7 @@ import * as express from 'express';
 import { Operation, resource, spawn } from 'effection';
 import { Channel } from '@effection/channel';
 import { once } from '@effection/events';
+import { Server } from 'http';
 
 export function espresso(): Espresso {
   return new Espresso();
@@ -9,24 +10,24 @@ export function espresso(): Espresso {
 
 export class Espresso {
   constructor(private routes: Route[] = [], private middlewares: Handler[] = []) {}
-
-  post(path: string, handler: RouteHandler) {
+  
+  post(path: string, handler: RouteHandler): Espresso {
     return this.addRoute('post', path, handler);
   }
 
-  get(path: string, handler: RouteHandler) {
+  get(path: string, handler: RouteHandler): Espresso {
     return this.addRoute('get', path, handler);
   }
 
-  use(path: string, handler: RouteHandler) {
+  use(path: string, handler: RouteHandler): Espresso {
     return this.addRoute('use', path, handler);
   }
 
-  static(path: string, root: string) {
+  static(path: string, root: string): Espresso {
     return this.addMiddleware(path, express.static(root));
   }
 
-  *listen(port: number | undefined = undefined) {
+  *listen(port: number | undefined = undefined): Operation<Server> {
     let app = express();
 
     for (let middleware of this.middlewares) {
@@ -58,7 +59,7 @@ export class Espresso {
     yield once(http, 'listening');
 
     return http;
-  };
+  }
 
   private addRoute(method: RouteMatchType, path: string, handler: RouteHandler) {
     return new Espresso([...this.routes, { method, path, handler }], this.middlewares);
